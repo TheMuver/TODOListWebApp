@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>59f25a0f-57f5-4602-bfda-8792234a3d02</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TODOListWebApp.Repository\TODOListWebApp.Repository.csproj" />
+  </ItemGroup>
 
 </Project>

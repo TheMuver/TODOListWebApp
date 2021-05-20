@@ -34,7 +34,6 @@ namespace TODOListWebApp.Repository
             using (IDbConnection db = new MySqlConnection(Resources.CONNECTIONSTRING))
             {
                 string sqlQuery = "select * from note where @Login = note.user";
-
                 notes = db.Query<NoteDTO>(sqlQuery, user).ToList();
             }
             return notes;
@@ -44,7 +43,8 @@ namespace TODOListWebApp.Repository
         {
             using (IDbConnection db = new MySqlConnection(Resources.CONNECTIONSTRING))
             {
-                string sqlQuery = "update note";
+                string sqlQuery = "update note set content = @Text, user = @User, edit_time = @EditTime, deadline_time = @DeadlineTime where id = @Id";
+                db.Execute(sqlQuery, note);
             }
         }
 
@@ -52,7 +52,8 @@ namespace TODOListWebApp.Repository
         {
             using (IDbConnection db = new MySqlConnection(Resources.CONNECTIONSTRING))
             {
-                string sqlQuery = "";
+                string sqlQuery = "delete note where @Id = id";
+                db.Execute(sqlQuery, note);
             }
         }
     }
