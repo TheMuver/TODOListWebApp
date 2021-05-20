@@ -16,7 +16,8 @@ namespace TODOListWebApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<INoteRepository>();
+            services.AddSingleton<INoteRepository, NoteMySqlDb>();
+            services.AddSingleton<IUserRepository, UserMySqlDb>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

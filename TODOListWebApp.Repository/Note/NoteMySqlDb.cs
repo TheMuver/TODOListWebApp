@@ -11,7 +11,7 @@ using Dapper;
 
 namespace TODOListWebApp.Repository
 {
-    class NoteMySqlDb : INoteRepository
+    public class NoteMySqlDb : INoteRepository
     {
         public void InsertNote(NoteDTO note)
         {
