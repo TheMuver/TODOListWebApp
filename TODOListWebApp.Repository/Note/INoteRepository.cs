@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TODOListWebApp.Repository
 {
-    interface INoteRepository
+    public interface INoteRepository
     {
         public void InsertNote(NoteDTO note);
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TODOListWebApp.Repository
 {
-    class UserDTO
+    public class UserDTO
     {
         public string Login { get; set; }
         public string Password { get; set; }
