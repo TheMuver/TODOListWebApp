@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TODOListWebApp.Repository
 {
-    class Resources
+    public class Resources
     {
         public const string CONNECTIONSTRING = "Server=127.0.0.1;Database=todo-db;Uid=root;Pwd=12345678";
     }

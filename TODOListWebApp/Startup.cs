@@ -18,6 +18,7 @@ namespace TODOListWebApp
         {
             services.AddSingleton<INoteRepository, NoteMySqlDb>();
             services.AddSingleton<IUserRepository, UserMySqlDb>();
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,10 +32,8 @@ namespace TODOListWebApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    
-                });
+                endpoints.MapControllerRoute(name: "default",
+                    pattern: "{controller=Main}/{action=Index}");                
             });
         }
     }
