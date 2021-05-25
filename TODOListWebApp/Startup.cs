@@ -35,6 +35,21 @@ namespace TODOListWebApp
                 {
                     
                 });
+
+                endpoints.MapGet("/auth", async context =>
+                {
+
+                });
+
+                endpoints.MapGet("/about", async context =>
+                {
+
+                });
+
+                endpoints.MapGet("/notes", async context =>
+                {
+
+                });
             });
         }
     }

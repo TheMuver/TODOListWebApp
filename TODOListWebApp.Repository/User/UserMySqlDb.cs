@@ -10,7 +10,7 @@ using Dapper;
 
 namespace TODOListWebApp.Repository
 {
-    class UserMySqlDb : IUserRepository
+    public class UserMySqlDb : IUserRepository
     {
         public void InsertUser(UserDTO user)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TODOListWebApp.Repository
 {
-    class NoteDTO
+    public class NoteDTO
     {   
         public int? Id { get; set; }
 

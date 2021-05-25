@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TODOListWebApp.Repository
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         public void InsertUser(UserDTO user);
 

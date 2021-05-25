@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TODOListWebApp", "TODOListW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TODOListWebApp.Repository", "TODOListWebApp.Repository\TODOListWebApp.Repository.csproj", "{67362CEF-2E86-41CF-8364-5B42CE757855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{303566B0-B0B1-419A-9A41-6D22162AC904}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{67362CEF-2E86-41CF-8364-5B42CE757855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67362CEF-2E86-41CF-8364-5B42CE757855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67362CEF-2E86-41CF-8364-5B42CE757855}.Release|Any CPU.Build.0 = Release|Any CPU
-		{303566B0-B0B1-419A-9A41-6D22162AC904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{303566B0-B0B1-419A-9A41-6D22162AC904}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{303566B0-B0B1-419A-9A41-6D22162AC904}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{303566B0-B0B1-419A-9A41-6D22162AC904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
