@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,7 +24,7 @@ namespace TODOListWebApp
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
+            { 
                 app.UseDeveloperExceptionPage();
             }
 
@@ -33,23 +34,29 @@ namespace TODOListWebApp
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    string page = await File.ReadAllTextAsync("Pages/index.html");
+                    await context.Response.WriteAsync(page);
+                });
+
+                // endpoints.MapGet("/signup", async context =>
+                // {
+
+                // });
+
+                // endpoints.MapGet("/login", async context => 
+                // {
+
+                // });
+
+                // endpoints.MapGet("/about", async context =>
+                // {
                     
-                });
+                // });
 
-                endpoints.MapGet("/auth", async context =>
-                {
-
-                });
-
-                endpoints.MapGet("/about", async context =>
-                {
-
-                });
-
-                endpoints.MapGet("/notes", async context =>
-                {
-
-                });
+                // endpoints.MapGet("/notes", async context =>
+                // {
+                    
+                // });
             });
         }
     }
