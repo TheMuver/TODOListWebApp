@@ -19,6 +19,8 @@ namespace TODOListWebApp
         {
             services.AddSingleton<INoteRepository, NoteMySqlDb>();
             services.AddSingleton<IUserRepository, UserMySqlDb>();
+
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,37 +33,11 @@ namespace TODOListWebApp
             app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints => 
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    string page = await File.ReadAllTextAsync("Pages/index.html");
-                    await context.Response.WriteAsync(page);
-                });
-
-                endpoints.MapGet("/signup", async context =>
-                {
-                    string page = await File.ReadAllTextAsync("Pages/signup.html");
-                    await context.Response.WriteAsync(page);
-                });
-
-                endpoints.MapGet("/login", async context => 
-                {
-                    string page = await File.ReadAllTextAsync("Pages/login.html");
-                    await context.Response.WriteAsync(page);
-                });
-
-                endpoints.MapGet("/about", async context =>
-                {
-                    string page = await File.ReadAllTextAsync("Pages/about.html");
-                    await context.Response.WriteAsync(page);
-                });
-
-                endpoints.MapGet("/notes", async context =>
-                {
-                    string page = await File.ReadAllTextAsync("Pages/notes.html");
-                    await context.Response.WriteAsync(page);
-                });
+                endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller}/{action}");
             });
         }
     }
