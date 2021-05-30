@@ -21,15 +21,25 @@ namespace TODOListWebApp.Repository
             }
         }
 
-        public UserDTO GetUserByLogin(string login)
+        // public UserDTO GetUserByLogin(string login)
+        // {
+        //     UserDTO user;
+        //     using (IDbConnection db = new MySqlConnection(Resources.CONNECTIONSTRING))
+        //     {
+        //         string sqlQuery = "select * from user where @login = user.login;";
+        //         user = db.Query<UserDTO>(sqlQuery).FirstOrDefault();
+        //     }
+        //     return user;
+        // }
+
+        public bool IsUserExist(UserDTO user)
         {
-            UserDTO user;
-            using (IDbConnection db = new MySqlConnection(Resources.CONNECTIONSTRING))
-            {
-                string sqlQuery = "select * from user where @login = user.login;";
-                user = db.Query<UserDTO>(sqlQuery).FirstOrDefault();
-            }
-            return user;
+            throw new NotImplementedException();
+        }
+
+        public bool IsCorrectData(UserDTO user)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateUser(UserDTO user)

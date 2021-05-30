@@ -8,12 +8,16 @@ namespace TODOListWebApp.Repository
 {
     public interface IUserRepository
     {
-        public void InsertUser(UserDTO user);
+        void InsertUser(UserDTO user);
 
-        public UserDTO GetUserByLogin(string login);
+        //UserDTO GetUserByLogin(string login);
 
-        public void DeleteUser(UserDTO user);
+        bool IsUserExist(UserDTO user);
 
-        public void UpdateUser(UserDTO user);
+        bool IsCorrectData(UserDTO user);
+
+        void DeleteUser(UserDTO user);
+
+        void UpdateUser(UserDTO user);
     }
 }
