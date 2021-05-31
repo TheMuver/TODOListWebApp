@@ -10,27 +10,28 @@ namespace TODOListWebApp.Repository.User
 
         public void DeleteUser(UserDTO user)
         {
-            _data.RemoveAt(_data.FindIndex(u => u.Login == user.Login));
+            _data.RemoveAt(_data.FindIndex(u => u.Equals(user)));
         }
 
         public void InsertUser(UserDTO user)
         {
-            throw new System.NotImplementedException();
+            _data.Append(user);
         }
 
         public bool IsCorrectData(UserDTO user)
         {
-            throw new NotImplementedException();
+            return _data.Any(u => u.Equals(user));
         }
 
         public bool IsUserExist(UserDTO user)
         {
-            throw new NotImplementedException();
+            return _data.Any(u => u.Login.Equals(user.Login));
         }
 
         public void UpdateUser(UserDTO user)
         {
-            throw new System.NotImplementedException();
+            _data.RemoveAt(_data.FindIndex(u => u.Login.Equals(user.Login)));
+            InsertUser(user);
         }
     }
 }

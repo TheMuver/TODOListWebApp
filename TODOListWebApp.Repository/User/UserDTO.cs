@@ -16,5 +16,20 @@ namespace TODOListWebApp.Repository
             Login = login;
             Password = password;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is UserDTO) 
+            {
+                var tmp = obj as UserDTO;
+                return Login.Equals(tmp.Login) && Password.Equals(tmp.Password);
+            }
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
