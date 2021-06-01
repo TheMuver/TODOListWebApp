@@ -6,12 +6,12 @@ namespace TODOListWebApp.Repository.Note
 {
     public class NoteInMemoryDb : INoteRepository
     {
-        // Ну вот захотелось мне сделать все исключительно через интерфейс коллекций...
-        private IEnumerable<NoteDTO> _data = new List<NoteDTO>();
+        private List<NoteDTO> _data = new List<NoteDTO>();
 
         public void DeleteNote(NoteDTO note)
         {
-            _data = _data.Except(new NoteDTO[] { note });
+            _data.Remove(note);
+            note.Id = null;
         }
 
         public List<NoteDTO> GetNotesByUser(UserDTO user)
@@ -21,12 +21,14 @@ namespace TODOListWebApp.Repository.Note
 
         public void InsertNote(NoteDTO note)
         {
+            note.Id = _data.Count;
             _data.Append(note);
         }
 
         public void UpdateNote(NoteDTO note)
         {
-            _data
+            DeleteNote(note);
+            InsertNote(note);
         }
     }
 }

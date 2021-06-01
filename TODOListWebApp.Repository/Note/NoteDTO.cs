@@ -14,8 +14,13 @@ namespace TODOListWebApp.Repository
 
         public string Text { get; set; }
 
-        public DateTime EditTime { get; set; }
-
-        public DateTime DeadlineTime { get; set; }
+        public override bool Equals(object obj)
+        {
+            if (obj is NoteDTO) 
+            {
+                return Id == ((NoteDTO)obj).Id;
+            }
+            return base.Equals(obj);
+        }
     }
 }

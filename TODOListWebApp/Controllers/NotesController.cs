@@ -1,10 +1,10 @@
 using System;
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TODOListWebApp.Controllers
 {
+    [Authorize]
     public class NotesController : Controller
     {
         [HttpGet]
