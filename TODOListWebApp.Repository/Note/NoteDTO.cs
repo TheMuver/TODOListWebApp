@@ -18,7 +18,10 @@ namespace TODOListWebApp.Repository
         {
             if (obj is NoteDTO) 
             {
-                return Id == ((NoteDTO)obj).Id;
+                if (Id != null)
+                    return Id == ((NoteDTO)obj).Id;
+                else
+                    return false;
             }
             return base.Equals(obj);
         }

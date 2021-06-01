@@ -33,7 +33,7 @@
         <div class="input-custom" style="padding: 10px; padding-right: 20px; margin-left: 32%; width: 700px; height: auto;">
             <p class="font-roboto el">Введите свои данные:</p>
             <div class="input-group el ">
-                <input id="login" class="form-control" placeholder="name@e-mail.com" required autofocus>
+                <input id="login" class="form-control" placeholder="name@e-mail.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}" required autofocus>
                 <input id="password" type="password" class="form-control" placeholder="•••••••••" required >
             </div>
             <button class="el btn btn-primary btn-md" style="margin-left: 9px;">Создать аккаунт!</button>
