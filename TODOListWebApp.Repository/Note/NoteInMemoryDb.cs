@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TODOListWebApp.Repository.Note
+namespace TODOListWebApp.Repository
 {
     public class NoteInMemoryDb : INoteRepository
     {

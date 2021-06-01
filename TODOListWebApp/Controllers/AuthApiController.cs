@@ -14,5 +14,12 @@ namespace TODOListWebApp.Controllers
         {
             _users = users;
         }
+
+        [HttpPost]
+        [Route("auth")]
+        public IActionResult Auth() 
+        {
+            return Ok();
+        }
     }
 }

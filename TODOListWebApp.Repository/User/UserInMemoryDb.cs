@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TODOListWebApp.Repository.User
+namespace TODOListWebApp.Repository
 {
     public class UserInMemoryDb : IUserRepository
     {

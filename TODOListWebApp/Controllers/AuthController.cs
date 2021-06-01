@@ -9,7 +9,7 @@ namespace TODOListWebApp.Controllers
         [HttpGet]
         [Route("login")]
         public IActionResult GetLoginPage() 
-        {
+        {						
             return File(System.IO.File.ReadAllBytes("Pages/login.html"), "text/html");
         }
 
