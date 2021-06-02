@@ -22,7 +22,7 @@ namespace TODOListWebApp.Repository
         public void InsertNote(NoteDTO note)
         {
             note.Id = _data.Count;
-            _data.Append(note);
+            _data.Add(note);
         }
 
         public void UpdateNote(NoteDTO note)

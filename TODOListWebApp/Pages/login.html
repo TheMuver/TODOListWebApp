@@ -49,7 +49,7 @@
         async function onClick() {
             let login = document.getElementById("login").value;
             let password = document.getElementById("password").value;
-            await fetch("/auth", {
+            await fetch("/user.auth", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,18 +75,6 @@
                     alert("Что-то пошло не так.")
                 }
             });
-            // await fetch("/auth", {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ "lol":"Hello" })
-            // }).then(response => {
-            //     let text = response.text()
-            //     text.then(readText => {
-            //         window.location.replace(readText);
-            //     });
-            // });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

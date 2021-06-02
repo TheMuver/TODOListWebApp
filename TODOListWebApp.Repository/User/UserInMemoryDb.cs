@@ -15,7 +15,7 @@ namespace TODOListWebApp.Repository
 
         public void InsertUser(UserDTO user)
         {
-            _data.Append(user);
+            _data.Add(user);
         }
 
         public bool IsCorrectData(UserDTO user)

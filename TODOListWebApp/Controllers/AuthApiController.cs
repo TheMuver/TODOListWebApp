@@ -1,3 +1,4 @@
+using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -21,10 +22,10 @@ namespace TODOListWebApp.Controllers
         }
 
         [HttpPost]
-        [Route("auth")]
+        [Route("user.auth")]
         public IActionResult Auth([FromBody] User user) 
         {
-            if (user.Login.Equals("lol@ya.ru") && user.Login.Equals("lol")) 
+            if (_users.IsCorrectData(user.ToDTO())) 
             {
                 List<Claim> claims = new List<Claim>() { new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login) };
                 ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
@@ -34,6 +35,21 @@ namespace TODOListWebApp.Controllers
             else 
             {
                 return StatusCode(StatusCodes.Status404NotFound);
+            }
+        }
+
+        [HttpPost]
+        [Route("user.create")]
+        public IActionResult Create([FromBody] User user) 
+        {
+            if (!_users.IsUserExist(user.ToDTO())) 
+            {
+                _users.InsertUser(user.ToDTO());
+                return Ok("login");
+            }
+            else 
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
             }
         }
     }
