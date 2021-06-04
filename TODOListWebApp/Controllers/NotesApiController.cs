@@ -20,7 +20,7 @@ namespace TODOListWebApp.Controllers
         }
 
         [HttpGet]
-        [Route("getallnotes")]
+        [Route("note.getall")]
         public List<Note> GetAllNotes() {
             Console.WriteLine(HttpContext.User.Claims.Count());
             User u = new User();
@@ -28,24 +28,30 @@ namespace TODOListWebApp.Controllers
         }
 
         [HttpPost]
-        [Route("addnote")]
+        [Route("note.add")]
         public IActionResult AddNote([FromBody] Note note) {
             _data.InsertNote(note.ToDTO());
             return Ok();
         }
 
         [HttpDelete]
-        [Route("deletenote")]
+        [Route("note.delete")]
         public IActionResult DeleteNote([FromBody] Note note) {
             _data.DeleteNote(note.ToDTO());
             return Ok();
         }
 
-        [HttpPut]
-        [Route("updatenote")]
+        [HttpPost]
+        [Route("note.update")]
         public IActionResult UpdateNote([FromBody] Note note) {
             _data.UpdateNote(note.ToDTO());
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("note.template")]
+        public string GetTemplate() {
+            return System.IO.File.ReadAllText("Pages/note.html");
         }
     }
 }

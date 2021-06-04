@@ -30,16 +30,14 @@
         </div>
     </nav>
     <div class="container">
-        <div>
-            <p><h1 class="display-5" style="margin-top: 100px;">Мои заметки</h1></p>
+        <div class="flex-container">
+            <h1 class="display-5" style="margin-top: 100px;">Мои заметки</h1>
+            <button class="btn btn-secondary btn-lg" onclick="addEmptyNote()">Создать новую заметку</button>
         </div>
-        <div id="notes-container">
-            
+        <div id="notes-container" class="notes-container">
         </div>
     </div>
     <script>
-        window.onload(() => getAllNotes());
-
         async function logout() {
             fetch("logout")
                 .then(response => {
@@ -50,7 +48,38 @@
         }
 
         async function getAllNotes() {
+            await fetch("note.getall")
+            .then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        let array = Object.values(data)
+                        let notes = document.getElementById("notes-container");
+                        array.forEach(element => {
+                            // для каждого элемента вызываем генератор разметки и вставляем его
+                        });
+                    })
+                }
+            })
+        }
 
+        async function addEmptyNote() {
+            let notes = document.getElementById("notes-container");
+            notes.innerHTML += await getNoteLayout("");
+        }
+
+        async function getNoteLayout(text) {
+            let response = await fetch("note.template");
+            let note = await response.text();
+            let id = await saveNote(text);
+            note = note.replace("@id", id);
+            note = note.replace("@text", text);
+            return note;
+        }
+
+        async function saveNote() {
+            // отправляем на сервер запрос на сохранение, он присылает id заметки
+            let id = 0;
+            return id;
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

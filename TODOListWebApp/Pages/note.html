@@ -1,0 +1,8 @@
+<div id="note-@id" class="note">
+    <small class="form-text text-dark">Заметка:</small>
+    <div id="textarea" contenteditable="true" class="md-textarea form-control" style="margin-bottom: 5px; min-height: 100px;">@text</div>
+    <div class="flex-container">
+       <button id="btn-save" onclick="updatenote(@id)" class="btn btn-primary btn-md">💾</button>
+       <button id="btn-delete" onclick="deletenote(@id)" class="btn btn-danger btn-md">🗑</button>
+    </div>
+</div>

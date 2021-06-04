@@ -14,11 +14,5 @@ namespace TODOListWebApp.Controllers
         {
             return File(System.IO.File.ReadAllBytes("Pages/notes.html"), "text/html");
         }
-
-        [HttpGet]
-        [Route("notetemplate")]
-        public IActionResult GetTemplate() {
-            return File(System.IO.File.ReadAllBytes("Pages/note.html"), "text/html");
-        }
     }
 }
