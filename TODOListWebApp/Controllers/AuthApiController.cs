@@ -27,7 +27,7 @@ namespace TODOListWebApp.Controllers
         {
             if (_users.IsCorrectData(user.ToDTO())) 
             {
-                List<Claim> claims = new List<Claim>() { new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login) };
+                List<Claim> claims = new List<Claim>() { new Claim("Login", user.Login) };
                 ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
                 return Ok("notes");

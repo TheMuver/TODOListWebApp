@@ -26,6 +26,10 @@ namespace TODOListWebApp
             Text = dto.Text;
         }
 
+        public NoteDTO ToDTO() {
+            return new NoteDTO() {Id = this.Id, User = this.User, Text = this.Text };
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Note) 

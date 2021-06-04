@@ -8,6 +8,11 @@ namespace TODOListWebApp.Repository
     {
         private List<UserDTO> _data = new List<UserDTO>();
 
+        // TODO удалить
+        public UserInMemoryDb() {
+            InsertUser(new UserDTO("q@q.qq", "1"));
+        }
+
         public void DeleteUser(UserDTO user)
         {
             _data.RemoveAt(_data.FindIndex(u => u.Equals(user)));
