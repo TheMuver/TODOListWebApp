@@ -31,17 +31,19 @@
         </div>
     </nav>
     <div class="text-center display-4 text" style="margin-top: 13%; padding: 10px;">Авторизация</div>
-    <div class="input-custom" style="padding: 10px; padding-right: 20px; margin-left: 520px; width: 700px; height: auto;">
-        <p class="font-roboto el">Введите свои данные:</p>
-        <div class="input-group el">
-            <input id="login" class="form-control" placeholder="name@email.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}" required autofocus>
-            <input id="password" class="form-control" placeholder="•••••••••" type="password" required >
-        </div>
-        <div class="el" style="display: flex; justify-content: space-between; align-items: center;">
-            <button class="btn btn-primary btn-md" onclick="onClick()">Войти!</button>
-            <div>
-                <span class="font-roboto">Нет аккаунта?</span>
-                <a type="submit" class="font-roboto" href="/signup" >Зарегистрироваться</a>
+    <div style="display: flex; justify-content: center;">
+        <div class="input-custom" style="padding: 10px; padding-right: 20px; width: 700px; height: auto;">
+            <p class="font-roboto el">Введите свои данные:</p>
+            <div class="input-group el">
+                <input id="login" class="form-control" placeholder="name@email.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}" required autofocus>
+                <input id="password" class="form-control" placeholder="•••••••••" type="password" required >
+            </div>
+            <div class="el" style="display: flex; justify-content: space-between; align-items: center;">
+                <button class="btn btn-primary btn-md" onclick="onClick()">Войти!</button>
+                <div>
+                    <span class="font-roboto">Нет аккаунта?</span>
+                    <a type="submit" class="font-roboto" href="/signup" >Зарегистрироваться</a>
+                </div>
             </div>
         </div>
     </div>
