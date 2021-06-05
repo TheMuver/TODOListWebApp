@@ -21,15 +21,15 @@ namespace TODOListWebApp.Controllers
 
         [HttpGet]
         [Route("note.getall")]
-        public List<Note> GetAllNotes() {
-            Console.WriteLine(HttpContext.User.Claims.Count());
-            User u = new User();
-            return _data.GetNotesByUser(u.ToDTO()).ConvertAll<Note>(dto => new Note(dto));
+        public Note[] GetAllNotes() {
+            User u = new User(getUserName(), "");
+            return _data.GetNotesByUser(u.ToDTO()).ConvertAll<Note>(dto => new Note(dto)).ToArray();
         }
 
         [HttpPost]
         [Route("note.add")]
         public IActionResult AddNote([FromBody] Note note) {
+            note.User = getUserName();
             _data.InsertNote(note.ToDTO());
             return Ok();
         }
@@ -37,6 +37,7 @@ namespace TODOListWebApp.Controllers
         [HttpDelete]
         [Route("note.delete")]
         public IActionResult DeleteNote([FromBody] Note note) {
+            note.User = getUserName();
             _data.DeleteNote(note.ToDTO());
             return Ok();
         }
@@ -44,6 +45,7 @@ namespace TODOListWebApp.Controllers
         [HttpPost]
         [Route("note.update")]
         public IActionResult UpdateNote([FromBody] Note note) {
+            note.User = getUserName();
             _data.UpdateNote(note.ToDTO());
             return Ok();
         }
@@ -52,6 +54,10 @@ namespace TODOListWebApp.Controllers
         [Route("note.template")]
         public string GetTemplate() {
             return System.IO.File.ReadAllText("Pages/note.html");
+        }
+
+        private string getUserName() {
+            return HttpContext.User.Claims.First(c => c.Type == "Login").Value;
         }
     }
 }

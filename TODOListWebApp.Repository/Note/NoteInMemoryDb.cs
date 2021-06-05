@@ -10,13 +10,16 @@ namespace TODOListWebApp.Repository
 
         public void DeleteNote(NoteDTO note)
         {
-            _data.Remove(note);
+            _data.RemoveAt(_data.FindIndex(n => n.Id == note.Id));
             note.Id = null;
         }
 
         public List<NoteDTO> GetNotesByUser(UserDTO user)
         {
-            return _data.Where(n => n.User.Equals(user.Login)).ToList();
+            var list = _data.Where(n => n.User.Equals(user.Login)).ToList();
+            for (int i = 0; i < list.Count; i++)
+                list[i].Id = i;
+            return list;
         }
 
         public void InsertNote(NoteDTO note)

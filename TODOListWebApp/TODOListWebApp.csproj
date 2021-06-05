@@ -9,8 +9,11 @@
     <ProjectReference Include="..\TODOListWebApp.Repository\TODOListWebApp.Repository.csproj" />
   </ItemGroup>
   <ItemGroup>     
-    <None Update="wwwroot*">       
+    <None Update="wwwroot">       
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>     
     </None>   
+        <None Update="Pages">       
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>     
+    </None>
   </ItemGroup>
 </Project>
