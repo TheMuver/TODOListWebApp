@@ -61,6 +61,9 @@
                     notes.innerHTML += await configureNoteLayout(el.id, el.text);
                 }
             }
+            if (notes.innerHTML == "") {
+                notes.innerHTML = "<img src=\"https://media1.tenor.com/images/b7cafc73d7abc1ae5b75c285a0265487/tenor.gif?itemid=17270183\" style=\"height: 300px; width: 300px;\">";
+            }
         }
 
         async function updatenote(id) {
